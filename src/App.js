@@ -6,7 +6,7 @@ function App() {
   return (
     <div>
       <NavBar/>
-      <ItemListContainer/> 
+      <ItemListContainer greeting={"Hola Mundo!"} style={{color: 'red'}}/> 
     </div>
   );
 }
