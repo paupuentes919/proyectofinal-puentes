@@ -1,10 +1,17 @@
+.navbar-background {
+  background: blue;
+}
 .PackMan-NavBar {
   font-family: 'Press Start 2P', cursive;
   color: yellow;
   font-size: 20px;
   -webkit-text-stroke: 1px black;
-  background: rgb(20, 34, 241);
-  padding: 10px;
+}
+.PackMan-NavBar-2 {
+  font-family: 'Press Start 2P', cursive;
+  color: yellow;
+  font-size: 14px;
+  -webkit-text-stroke: 1px black;
 }
 
 .title-navbar {
