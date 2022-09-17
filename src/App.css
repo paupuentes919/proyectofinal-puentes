@@ -1,23 +1,29 @@
+/*---------------------NAVBAR-----------------------------*/
 .navbar-background {
   background: blue;
 }
 
-.PackMan-NavBar {
+.packman-navbar {
   font-family: 'Press Start 2P', cursive;
   color: yellow;
   font-size: 20px;
   -webkit-text-stroke: 1px black;
 }
 
-.PackMan-NavBar-2 {
+.packman-navbar-2 {
   font-family: 'Press Start 2P', cursive;
   color: yellow;
   font-size: 14px;
   -webkit-text-stroke: 1px black;
 }
 
-.PackMan-Photo {
+.packman-photo {
   height: 2rem;
+  padding-left: 15px;
+}
+
+.ghosts-photo {
+  height: 4rem;
   padding-left: 12px;
 }
 
@@ -32,5 +38,7 @@
 .cart-shop {
   height: 2.7rem;
 }
+
+/*--------------------------------------------------------*/
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
