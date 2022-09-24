@@ -1,4 +1,5 @@
 import ItemCount from './ItemCount'
+import ItemList from './ItemList'
 
 const ItemListContainer = ({greeting, style}) => {
     return (
@@ -8,6 +9,7 @@ const ItemListContainer = ({greeting, style}) => {
             </div>
             <div>
                 <ItemCount/>
+                <ItemList/>
             </div>
         </div>
     )
