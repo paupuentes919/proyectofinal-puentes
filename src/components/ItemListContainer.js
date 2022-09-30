@@ -4,6 +4,7 @@ import ItemList from "./ItemList"
 import { products } from "./data/Products"
 
 const ItemListContainer = ({greeting}) => {
+    
     const [items, setItems] = useState([])
 
     useEffect( ()=>{

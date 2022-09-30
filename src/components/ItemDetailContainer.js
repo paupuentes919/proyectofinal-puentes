@@ -9,7 +9,6 @@ const ItemDetailContainer = () => {
     
     useEffect(() => {
         getProducts().then( response => {
-            console.log("Hola", response);
             setItem(response);
             }
         )
