@@ -60,5 +60,12 @@
 }
 
 
+/*---------------------------- MENU ----------------------------*/
+
+
+.hola {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');

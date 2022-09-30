@@ -1,6 +1,7 @@
 import CartWidget from './CartWidget'
 import pacman from '../images/pacman.png'
 import fantasmitas from '../images/fantasmitas.png'
+import { Link } from "react-router-dom"
 
 const NavBar = () => {
     return(
@@ -11,12 +12,12 @@ const NavBar = () => {
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <li><a>Menu</a></li>
+                        <Link to='/'>Menu</Link>
                         <li><a>Sucursales</a></li>
                         <li><a>Contacto</a></li>
                     </ul>
                 </div>
-                <a className="packman-navbar">PacFoodie Company</a>
+                <Link to='/' className="packman-navbar">PacFoodie Company</Link>
                 <img className="packman-photo hidden lg:flex" src={pacman}/>
                 <img className="ghosts-photo hidden lg:flex" src={fantasmitas}/>
             </div>
