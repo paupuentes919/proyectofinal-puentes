@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import React from "react"
 import ItemList from "./ItemList"
 import { products } from "./data/Products"
-import heart from "../images/heartvideogame.png"
 
 const ItemListContainer = ({greeting}) => {
     const [items, setItems] = useState([])

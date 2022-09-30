@@ -4,7 +4,7 @@ import React from 'react'
 
 const Item = ({id, title, price, pictureURL}) => {
     return (
-        <Link to = {`/${id}`}>
+        <Link to = {`/item/${id}`}>
             <div className=" flexi-box">
                 <div className='group'>
                     <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg background-card xl:aspect-w-7 xl:aspect-h-8">
