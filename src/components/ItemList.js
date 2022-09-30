@@ -1,35 +1,28 @@
-import { useEffect, useState } from "react"
 import Item from "./Item"
-import { products } from "./data/Products"
-import ItemListContainer from "./ItemListContainer"
+import heart from "../images/heartvideogame.png"
+import up from "../images/1up.png"
 
-const ItemList = () => {
-    const [items, setItems] = useState([])
-
-    useEffect( ()=>{
-        getProducts()
-        .then( result => {
-            console.log(result);
-            setItems( result )
-        })
-        .catch( err => {
-            console.log('err: ' + err);
-        })
-      }, [])
-
-    const getProducts = () => {
-        return new Promise( (resolve) => {
-          setTimeout( () => {
-            resolve( products )
-          }, 2000)
-        })
-    }
-
+const ItemList = ({items}) => {
     return (
         <div>
-            <h1>Lista de Productos</h1>
-            { items.map( item => <ItemListContainer key={item.id} {...item} /> ) }
+            <span className="list-products-heart">
+             
+                <img className="heart" src={heart}/>
+                <img className="up" src={up}/>
+                <img className="heart" src={heart}/>
+                <div className="list-product-text text-product-position">Lista de Productos</div>
+                <img className="heart" src={heart}/>
+                <img className="up" src={up}/>
+                <img className="heart" src={heart}/>
+           
+            </span>
+
+
+            <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8 background-border-cards">
+                {items.map(item => <Item key={item.id} {...item} />)}
+            </div>
         </div>
     )
+
 }
 export default ItemList

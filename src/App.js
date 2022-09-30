@@ -11,7 +11,7 @@ function App() {
         <NavBar/>
         <Routes>
           {/* <ItemListContainer greeting={"Hola usuario! Bienvenido a la Hamburgueseria"} style={{color: 'red', padding: '20px'}}/>  */}
-          <Route path={'/'} element={<ItemList/>}></Route>
+          <Route path={'/'} element={<ItemListContainer greeting={"Hola usuario! Bienvenido a la Hamburgueseria"} />}></Route>
         </Routes>
       </BrowserRouter>
     </div>

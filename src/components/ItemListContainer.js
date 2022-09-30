@@ -1,12 +1,38 @@
-import ItemCount from './ItemCount'
-import { Link } from 'react-router-dom'
-import React from 'react'
+import { useEffect, useState } from "react"
+import React from "react"
+import ItemList from "./ItemList"
+import { products } from "./data/Products"
+import heart from "../images/heartvideogame.png"
 
-const ItemListContainer = ({id, title, price, pictureURL}) => {
+const ItemListContainer = ({greeting}) => {
+    const [items, setItems] = useState([])
+
+    useEffect( ()=>{
+        getProducts()
+        .then( result => {
+            console.log(result);
+            setItems( result )
+        })
+        .catch( err => {
+            console.log('err: ' + err);
+        })
+      }, [])
+
+    const getProducts = () => {
+        return new Promise( (resolve) => {
+          setTimeout( () => {
+            resolve( products )
+          }, 2000)
+        })
+    }
+
     return (
-        <Link to = {`/${id}`}>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 max-w-full lg:max-w-7xl m-auto'>{title}</div>
-        </Link>
+        <div>
+            <div>
+                <h2 className="background-border-cards">{greeting}</h2>
+                <ItemList items={items}></ItemList>
+            </div>
+        </div>
     )
 }
 export default ItemListContainer
