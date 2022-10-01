@@ -18,6 +18,8 @@ html{
   color: yellow;
   font-size: 14px;
   -webkit-text-stroke: 1px black;
+  display: flex;
+  justify-content: center;
 }
 
 .packman-photo {
@@ -141,6 +143,7 @@ html{
   color: rgb(255, 255, 255);
   font-size: 30px;
   margin-bottom: 2rem;
+  padding-left: 1rem;
 }
 
 .item-description-text{
@@ -148,6 +151,7 @@ html{
   color: rgb(255, 255, 255);
   font-size: 17px;
   margin-bottom: 1rem;
+  padding-left: 1rem;
 }
 
 .counter-ghosts{
