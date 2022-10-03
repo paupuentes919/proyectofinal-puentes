@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import React from "react"
 import ItemList from "./ItemList"
 import { products } from "./data/Products"
-import { useParams } from 'react-router-dom'
+import { useParams } from "react-router-dom"
 
 const ItemListContainer = ({greeting}) => {
     const { category } = useParams()
