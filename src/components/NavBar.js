@@ -28,7 +28,7 @@ const NavBar = ({category,id}) => {
                     <li><Link to='/'>Todo</Link></li>
                     <li><Link to='/category/hamburger'>Hamburguesas</Link></li>
                     <li><Link to='/category/sidedish'>Acompañamientos</Link></li>
-                    <li><Link to='/category/dish'>Bebidas</Link></li>
+                    <li><Link to='/category/drink'>Bebidas</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">

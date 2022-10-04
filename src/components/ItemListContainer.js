@@ -13,6 +13,7 @@ const ItemListContainer = ({greeting}) => {
         .then( result => {
             console.log(result);
             setItems( result )
+       
         })
         .catch( err => {
             console.log('err: ' + err);
@@ -22,7 +23,7 @@ const ItemListContainer = ({greeting}) => {
     const getProducts = () => {
         return new Promise( (resolve) => {
           setTimeout( () => {
-            resolve( products )
+            resolve(products.filter( product => product.category === category))
           }, 2000)
         })
     }
@@ -32,7 +33,9 @@ const ItemListContainer = ({greeting}) => {
             <div>
                 <h2 className="background-border-cards">{greeting}</h2>
                 <ItemList items={items}></ItemList>
-                {items.filter( item => item.category == category )}
+                {items.filter( item => 
+                    item.category === category 
+                )}
             </div>
         </div>
     )
