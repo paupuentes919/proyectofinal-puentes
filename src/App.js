@@ -12,7 +12,7 @@ function App() {
         <Routes>
           {/* <ItemListContainer greeting={"Hola usuario! Bienvenido a la Hamburgueseria"} style={{color: 'red', padding: '20px'}}/>  */}
           <Route path={'/'} element={<ItemListContainer greeting={"Hola usuario! Bienvenido a la Hamburgueseria"} />}></Route>
-          <Route path={'/category/:id'} element={<ItemListContainer/>}></Route>
+          <Route path={'/category/:category'} element={<ItemListContainer/>}></Route>
           <Route path={'/item/:id'} element={<ItemDetailContainer/>}></Route>
         </Routes>
       </BrowserRouter>
