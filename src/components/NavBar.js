@@ -4,7 +4,7 @@ import fantasmitas from '../images/fantasmitas.png'
 import { Link } from "react-router-dom"
 
 
-const NavBar = ({category,id}) => {
+const NavBar = () => {
     return(
         <div className="navbar bg-base-100 navbar-background">
             <div className="navbar-start">
@@ -25,10 +25,10 @@ const NavBar = ({category,id}) => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 packman-navbar-2">
-                    <li><Link to='/'>Todo</Link></li>
-                    <li><Link to='/category/hamburger'>Hamburguesas</Link></li>
-                    <li><Link to='/category/sidedish'>Acompañamientos</Link></li>
-                    <li><Link to='/category/drink'>Bebidas</Link></li>
+                    <li><Link to={'/'}>Todo</Link></li>
+                    <li><Link to={'/category/hamburger'}>Hamburguesas</Link></li>
+                    <li><Link to={'/category/sidedish'}>Acompañamientos</Link></li>
+                    <li><Link to={'/category/drink'}>Bebidas</Link></li>
                 </ul>
             </div>
             <div className="navbar-end">

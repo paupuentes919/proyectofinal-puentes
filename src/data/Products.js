@@ -9,8 +9,8 @@ const products = [
     {id: 8, title: 'Bashful', category: 'hamburger', description: 'Hamburguesa con 240 gr. De carne, queso halloumi frito, doble queso cheddar, panceta y salsa mil islas', price: 1750, stock: 10, pictureURL: "https://images.rappi.com.ar/products/1802230-1606918049355.jpg?e=webp&d=800x800&q=80"},
     {id: 9, title: 'PacMaster', category: 'hamburger', description: 'Hamburguesa con 240gr de carne, doble queso cheddar, panceta, aros de cebolla, salsa gold mustard bbq', price: 1700, stock: 12, pictureURL: "https://images.rappi.com.ar/products/1101357-1599758103137.png?e=webp&d=800x800&q=80"},
     {id: 10, title: 'Tequeños Pac-Cheese', category: 'sidedish', description: '6 Tequeños en masa de hojaldre suave rellenos de queso, acompañados con salsa aioli', price: 1190, stock: 15, pictureURL: "https://images.rappi.com.ar/products/989985-1599758071773.png?e=webp&d=800x800&q=80"},
-    {id: 11, title: 'Tequeños Pac-Chocolate', category: 'idedish', description: '6 tequeños en masa de hojaldre suave rellenos de chocolate', price: 1190, stock: 10, pictureURL: "https://images.rappi.com.ar/products/989991-1599758082980.png?e=webp&d=800x800&q=80"},
-    {id: 12, title: 'Papas Fritas', category: 'idedish', description: 'Ración de papas fritas', price: 550, stock: 10, pictureURL: "https://images.rappi.com.ar/products/387280-1599758066654.png?e=webp&d=800x800&q=80"},
+    {id: 11, title: 'Tequeños Pac-Chocolate', category: 'sidedish', description: '6 tequeños en masa de hojaldre suave rellenos de chocolate', price: 1190, stock: 10, pictureURL: "https://images.rappi.com.ar/products/989991-1599758082980.png?e=webp&d=800x800&q=80"},
+    {id: 12, title: 'Papas Fritas', category: 'sidedish', description: 'Ración de papas fritas', price: 550, stock: 10, pictureURL: "https://images.rappi.com.ar/products/387280-1599758066654.png?e=webp&d=800x800&q=80"},
     {id: 13, title: 'Coca Cola', category: 'drink', description: 'Gaseosa regular linea Coca Cola', price: 320, stock: 20, pictureURL: "https://images.rappi.com.ar/products/387283-1588184673762.jpg?e=webp&d=800x800&q=80"},
     {id: 14, title: 'Coca Cola Zero', category: 'drink', description: 'Gaseosa dietetica linea Coca Cola', price: 320, stock: 15, pictureURL: "https://images.rappi.com.ar/products/1137143-1588022913763.jpg?e=webp&d=800x800&q=80"},
     {id: 15, title: 'Sprit', category: 'drink', description: 'Gaseosa regular Sprite', price: 320, stock: 10, pictureURL: "https://images.rappi.com.ar/products/1137211-1587752625507.jpg?e=webp&d=800x800&q=80"},
@@ -18,4 +18,22 @@ const products = [
     {id: 17, title: 'Schweppes Pomelo', category: 'drink', description: 'Schweppes pomelo sin azucar', price: 320, stock: 10, pictureURL: "https://images.rappi.com.ar/products/1111057-1586463918179.jpg?e=webp&d=800x800&q=80"},
     {id: 18, title: 'Agua', category: 'drink', description: 'Agua sin gas', price: 500, stock: 20, pictureURL: "https://images.rappi.com.ar/products/1141516-1588023111775.png?e=webp&d=800x800&q=80"},
 ]
+
+export const getProductsByCategory = (category) => {
+    return new Promise( (resolve) => {
+    const itemsFiltered = products.filter( item => item.category === category)
+      setTimeout( () => {
+        resolve(itemsFiltered)
+      }, 2000)
+    })
+}
+
+export const getProducts = () => {
+    return new Promise( (resolve) => {
+      setTimeout( () => {
+        resolve(products)
+      }, 2000)
+    })
+}
+
 export {products}

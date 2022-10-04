@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import { products } from "./data/Products"
 import { useParams } from 'react-router-dom'
+import {products} from '../data/Products'
 
 const ItemCount = () => {
 

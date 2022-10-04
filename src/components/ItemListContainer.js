@@ -1,41 +1,38 @@
 import { useEffect, useState } from "react"
 import React from "react"
 import ItemList from "./ItemList"
-import { products } from "./data/Products"
+import { getProducts } from "../data/Products"
+import { getProductsByCategory } from "../data/Products"
 import { useParams } from "react-router-dom"
 
 const ItemListContainer = ({greeting}) => {
     const { category } = useParams()
     const [items, setItems] = useState([])
 
-    useEffect( ()=>{
-        getProducts()
-        .then( result => {
-            console.log(result);
-            setItems( result )
-       
-        })
-        .catch( err => {
-            console.log('err: ' + err);
-        })
-      }, [])
-
-    const getProducts = () => {
-        return new Promise( (resolve) => {
-          setTimeout( () => {
-            resolve(products.filter( product => product.category === category))
-          }, 2000)
-        })
-    }
+    useEffect(()=>{
+        // chequeamos si hay categorías
+        if (category){
+         //lamamos a la función con category como parámetro. Para que haga el filtro
+            getProductsByCategory(category).then((products) => {
+         // seteamos el estado
+             setItems(products)      
+          })
+          // si no hay categorías
+        }else {
+          //llamamos a la función
+          getProducts().then((products) => {
+            //seteamos el estado
+            setItems(products)
+          })
+        }
+        // ponemos el parámetro como array de dependencias para que se renderice cuando cambia de categoría
+      }, [category])
 
     return (
         <div>
             <div>
                 <h2 className="background-border-cards">{greeting}</h2>
                 <ItemList items={items}></ItemList>
-                {items.filter( item => 
-                    item.category === category 
-                )}
             </div>
         </div>
     )
