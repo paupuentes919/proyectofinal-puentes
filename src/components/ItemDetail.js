@@ -1,9 +1,13 @@
 import ItemCount from './ItemCount'
+import { useState } from 'react'
 
 const ItemDetail = ({itemProduct}) => {
 
+const [quantity, setQuantity] = useState(0);
+
 const handlerClick = (valueCount) => {
-    console.log(valueCount)
+    setQuantity = valueCount;
+    console.log("valueCount: ", valueCount);
 }
     
 
@@ -16,7 +20,7 @@ const handlerClick = (valueCount) => {
                 <div className="item-description-text">Price: $ {itemProduct.price}</div>
                 <div className="item-description-text">Stock: {itemProduct.stock}</div>
                 <div className="counter-ghosts">
-                <ItemCount handlerClick={handlerClick}/>
+                <ItemCount initial={1} onAdd={handlerClick} />
                 </div>
             </div> 
         </div>

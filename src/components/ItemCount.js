@@ -6,9 +6,9 @@ import cross from "../images/cross.png"
 import circle from "../images/circle.png"
 import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
 
-const ItemCount = () => {
+const ItemCount = ({initial, onAdd}) => {
 
-    const [counter, setCounter] = useState(0)
+    const [counter, setCounter] = useState(initial)
     const { id: itemId } = useParams()
     const [item, setItem] = useState({})
     
@@ -47,7 +47,7 @@ const ItemCount = () => {
                 </button>
             </div>
             <div className="counter-ghosts">
-            <button onClick={handlerClick(counter)} className="btn-add">
+            <button onClick={() => onAdd(counter)} className="btn-add">
                 Agregar a Mi Compra
                 <img className="circle" src={circle}/>
             </button>
