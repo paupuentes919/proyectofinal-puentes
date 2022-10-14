@@ -1,10 +1,8 @@
 import {useEffect, useState} from "react";
 import { useParams } from 'react-router-dom'
 import {products} from '../data/Products'
-import {Link} from "react-router-dom"
-import cross from "../images/cross.png"
 import circle from "../images/circle.png"
-import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
+
 
 const ItemCount = ({initial, onAdd}) => {
 
@@ -32,7 +30,7 @@ const ItemCount = ({initial, onAdd}) => {
     }
 
     const clickHandlerMinus = () => {
-        counter > 0 ? setCounter(counter-1) : setCounter(0)
+        counter > initial ? setCounter(counter-1) : setCounter(initial)
     }
 
     return (
@@ -47,15 +45,10 @@ const ItemCount = ({initial, onAdd}) => {
                 </button>
             </div>
             <div className="counter-ghosts">
-            <button onClick={() => onAdd(counter)} className="btn-add">
-                Agregar a Mi Compra
-                <img className="circle" src={circle}/>
-            </button>
-            <img className="ghosts-pacman-image" src={pacmanfantasmas} /> 
-            <Link to='/' className="btn-cancel">                    
-                Volver al Home
-                <img className="cross" src={cross}/>
-            </Link>
+                <button onClick={() => onAdd(counter)} className="btn-add">
+                    Agregar a Mi Compra
+                    <img className="circle" src={circle}/>
+                </button>
             </div>
         </div>
     )
