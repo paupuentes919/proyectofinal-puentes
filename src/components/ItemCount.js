@@ -1,6 +1,10 @@
 import {useEffect, useState} from "react";
 import { useParams } from 'react-router-dom'
 import {products} from '../data/Products'
+import {Link} from "react-router-dom"
+import cross from "../images/cross.png"
+import circle from "../images/circle.png"
+import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
 
 const ItemCount = () => {
 
@@ -32,14 +36,27 @@ const ItemCount = () => {
     }
 
     return (
-        <div className="btn-purcharse">
-            <button onClick={clickHandlerMinus} className="btn-operation-purchase">
-                -
+        <div>
+            <div className="btn-purcharse">
+                <button onClick={clickHandlerMinus} className="btn-operation-purchase">
+                    -
+                </button>
+                <div className="counter">{counter}</div>
+                <button onClick={clickHandlerPlus} className="btn-operation-purchase">
+                    +
+                </button>
+            </div>
+            <div className="counter-ghosts">
+            <button onClick={handlerClick(counter)} className="btn-add">
+                Agregar a Mi Compra
+                <img className="circle" src={circle}/>
             </button>
-            <div className="counter">{counter}</div>
-            <button onClick={clickHandlerPlus} className="btn-operation-purchase">
-                +
-            </button>
+            <img className="ghosts-pacman-image" src={pacmanfantasmas} /> 
+            <Link to='/' className="btn-cancel">                    
+                Volver al Home
+                <img className="cross" src={cross}/>
+            </Link>
+            </div>
         </div>
     )
 }
