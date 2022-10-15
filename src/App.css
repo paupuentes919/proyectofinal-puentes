@@ -173,7 +173,21 @@ html{
   font-family: 'Press Start 2P', cursive;
   border-radius: 10px;
   padding: 1rem 1.5rem; 
-  box-shadow: 5px 5px 15px black;
+  box-shadow: 5px 5px 15px  rgb(110, 109, 109);
+  margin-right: 1rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.btn-endPurchase {
+  background: rgb(238, 238, 8);
+  display: flex;
+  align-items: center;
+  font-family: 'Press Start 2P', cursive;
+  border-radius: 10px;
+  padding: 1rem 1.5rem; 
+  box-shadow: 5px 5px 15px rgb(110, 109, 109);
   margin-right: 1rem;
   margin-top: 1.5rem;
   display: flex;
@@ -187,7 +201,7 @@ html{
   font-family: 'Press Start 2P', cursive;
   border-radius: 10px;
   padding: 0 2rem; 
-  box-shadow: 5px 5px 15px black;
+  box-shadow: 5px 5px 15px  rgb(110, 109, 109);
   margin-right: 1rem;
 
 }
