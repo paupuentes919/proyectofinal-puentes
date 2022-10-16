@@ -10,27 +10,29 @@ const CartProvider = ({children}) => {
 
     const [addedItems, setAddedItems] = useState([])
 
-    const addItem = (chosenItem) => {
+    const addItem = ({chosenItem, quantity}) => {
+        console.log("quantity:", quantity);
+        console.log("chosen Item:", chosenItem);
      
-            const duplicateItemConditional = isInCart(chosenItem)
+            const duplicateItemConditional = isInCart(chosenItem.id)
 
-            if(duplicateItemConditional == true){
-                const duplicateItem = addedItems.find(item => item.id== chosenItem.id)
+            if(duplicateItemConditional === true){
+                const duplicateItem = addedItems.find(item => item.id === chosenItem.id)
         
             }
             else {
                 setAddedItems (chosenItems => chosenItems.concat(chosenItem))
             }
-        console.log("chosen Item:", chosenItem);
-        console.log("chosen Items:", addedItems);   
+       
+        console.log("addedItems:", addedItems);   
     }
 
     const removeItem = (unchosenItemId) => {
 
          const deleteItemConditional= isInCart(unchosenItemId)
 
-         if(deleteItemConditional == true){
-            const deleteItem = addedItems.find(item => item.id == unchosenItemId)
+         if(deleteItemConditional === true){
+            const deleteItem = addedItems.find(item => item.id === unchosenItemId)
             deleteItem.removeItem(deleteItem)
          }
     }
@@ -40,7 +42,7 @@ const CartProvider = ({children}) => {
     }
 
     const isInCart = (itemId) => {
-        return addedItems.exist(item => item.id == itemId)
+        return addedItems.exist(item => item.id === itemId)
     }
 
     const context = {

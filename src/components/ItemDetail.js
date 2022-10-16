@@ -15,7 +15,7 @@ const { addItem, addedItems } = useCart()
 const handlerClick = (valueCount) => {
     setQuantity(valueCount);
     console.log("valueCount: ", valueCount);
-    console.log("valueCount: ", itemProduct);
+    console.log("itemProduct: ", itemProduct);
     addItem(itemProduct, valueCount)
 }
     
