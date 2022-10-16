@@ -10,23 +10,32 @@ const CartProvider = ({children}) => {
 
     const [addedItems, setAddedItems] = useState([])
 
-    const addItem = ({chosenItem, quantity}) => {
-        console.log("quantity:", quantity);
-        console.log("chosen Item:", chosenItem);
-     
-            const duplicateItemConditional = isInCart(chosenItem.id)
-
-            if(duplicateItemConditional === true){
-                const duplicateItem = addedItems.find(item => item.id === chosenItem.id)
+    const addItem = (chosenItem, quantity) => {
+        // creas un nuevo objeto con los parámetros que recibís
+          const cart = {
+            ...chosenItem,
+            quantity
+          }     
+        // si está en el carrito, analizas si este producto está en isInCart
+          if(isInCart(cart.id)){
+        // si está, vas a hacer un map
+              addedItems.map(element => {
+          // si coinciden los id's
+                if(element.id === cart.id)  {
+        // suma la cantidad
+                  element.quantity += cart.quantity
+                }
+                return(element)
+                })
         
             }
-            else {
-                setAddedItems (chosenItems => chosenItems.concat(chosenItem))
+        // si no va a agregar el producto
+        else {
+              setAddedItems([...addedItems, cart])   
             }
-       
-        console.log("addedItems:", addedItems);   
+        console.log("newObject", addedItems);
     }
-
+        
     const removeItem = (unchosenItemId) => {
 
          const deleteItemConditional= isInCart(unchosenItemId)
@@ -42,7 +51,7 @@ const CartProvider = ({children}) => {
     }
 
     const isInCart = (itemId) => {
-        return addedItems.exist(item => item.id === itemId)
+        return addedItems.some(item => item.id === itemId)
     }
 
     const context = {
