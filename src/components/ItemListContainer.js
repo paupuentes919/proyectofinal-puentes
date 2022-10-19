@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom"
 const ItemListContainer = ({greeting}) => {
     const { category } = useParams()
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(()=>{
         // chequeamos si hay categorías
@@ -15,7 +16,8 @@ const ItemListContainer = ({greeting}) => {
          //lamamos a la función con category como parámetro. Para que haga el filtro
             getProductsByCategory(category).then((products) => {
          // seteamos el estado
-             setItems(products)      
+             setItems(products)  
+             setLoading(false)    
           })
           // si no hay categorías
         }else {
@@ -23,6 +25,7 @@ const ItemListContainer = ({greeting}) => {
           getProducts().then((products) => {
             //seteamos el estado
             setItems(products)
+            setLoading(false) 
           })
         }
         // ponemos el parámetro como array de dependencias para que se renderice cuando cambia de categoría
@@ -30,10 +33,14 @@ const ItemListContainer = ({greeting}) => {
 
     return (
         <div>
-            <div>
-                <h2 className="background-border-cards">{greeting}</h2>
-                <ItemList items={items}></ItemList>
-            </div>
+          {
+            loading ? <div>Loading...</div>
+                    :  <div>
+                          <h2 className="background-border-cards">{greeting}</h2>
+                          <ItemList items={items}></ItemList>
+                        </div>
+          }
+
         </div>
     )
 }
