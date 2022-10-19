@@ -4,13 +4,12 @@ import {Link} from "react-router-dom"
 import cross from "../images/cross.png"
 import triangle from "../images/triangle.png"
 import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
-import Cart from './Cart'
 import { useCart } from '../context/CartContext'
 
 const ItemDetail = ({itemProduct}) => {
 
 const [quantity, setQuantity] = useState(0);
-const { addItem, addedItems } = useCart()
+const { addItem } = useCart()
 
 const handlerClick = (valueCount) => {
     setQuantity(valueCount);
@@ -35,8 +34,6 @@ const handlerClick = (valueCount) => {
                     </Link>
                     <img className="ghosts-pacman-image" src={pacmanfantasmas} /> 
                 </div>
-                
-                <Cart/>
             </div> 
         </div>
     )
