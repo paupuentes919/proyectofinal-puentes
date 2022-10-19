@@ -215,7 +215,32 @@ html{
   padding-left: 0.5rem;
   height: 2rem;
   display: inline;
+}
 
+.pacman-loading{
+  height: 25rem;
+  margin-top: 10rem;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: black;
+  padding-bottom: 5.5rem;
+}
+
+.row-loading{
+  display: row;
+  align-content: center;
+}
+
+.text-loading{
+  display: flex;
+  justify-content: center;
+  font-family: 'Press Start 2P', cursive;
+  color: yellow;
+  font-size: 30px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');

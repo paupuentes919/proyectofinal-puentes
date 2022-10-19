@@ -4,6 +4,7 @@ import ItemList from "./ItemList"
 import { getProducts } from "../data/Products"
 import { getProductsByCategory } from "../data/Products"
 import { useParams } from "react-router-dom"
+import pacman from '../images/pacman2.png'
 
 const ItemListContainer = ({greeting}) => {
     const { category } = useParams()
@@ -34,11 +35,16 @@ const ItemListContainer = ({greeting}) => {
     return (
         <div>
           {
-            loading ? <div>Loading...</div>
-                    :  <div>
-                          <h2 className="background-border-cards">{greeting}</h2>
-                          <ItemList items={items}></ItemList>
+            loading ? <div className='loading'>
+                        <div className='row-loading'>
+                          <img className='pacman-loading' src={pacman}/>
+                          <div className='text-loading'>Loading...</div>
                         </div>
+                      </div>
+                    : <div>
+                        <h2 className="background-border-cards">{greeting}</h2>
+                        <ItemList items={items}></ItemList>
+                      </div>
           }
 
         </div>
