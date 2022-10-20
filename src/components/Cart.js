@@ -4,7 +4,7 @@ import cross from "../images/cross.png"
 import trash from '../images/trash-bin.png'
 
 const Cart = () => {
-    const { addedItems, count, removeAll, getTotal, trashAll} = useCart()
+    const { addedItems, count, removeAll, getTotal, trashAll, getTotalQuantity} = useCart()
 
     const { removeItem } = useCart()
     const pricexquantity = (price, quantity) => {
@@ -29,19 +29,30 @@ const Cart = () => {
                                                     <tbody>
                                                         <tr>
                                                             <td><img className="pictureURL-table" src= {item.pictureURL}/></td>
-                                                            <td className="text-table">{item.price}</td>
+                                                            <td className="text-table">$ {item.price}</td>
                                                             <td className="text-table">{item.quantity}</td>
-                                                            <td className="text-table">{pricexquantity(item.price, item.quantity)}</td>
-                                                            <td><button onClick={removeItem(item.id)}><img className="trash-bin" src={trash}/></button></td>
+                                                            <td className="text-table">$ {pricexquantity(item.price, item.quantity)}</td>
+                                                            {<td><button onClick={() => removeItem(item.id)}><img className="trash-bin" src={trash}/></button></td>}
                                                         </tr>
                                                     </tbody>   )}
                                         </table>
                                     </div>
-                                    <p>precio total: {getTotal()}</p>
-                                    <div className="space-around">
-                                        <button className="btn" onClick={trashAll}>Vaciar carrito</button>
-                                        <button className="btn">Terminar mi compra</button>
-                                        <Link to='/' className="btn">Seguir comprando</Link>
+                                    <div>
+                                        <div>
+                                            <div className="total-price">
+                                                <p>Precio total: ${getTotal()}</p>
+                                            </div>
+                                            <div className="total-price">
+                                                <p>Cantidad total: {getTotalQuantity()}</p>
+                                            </div>
+                                                <button className="btn btn-finish-purchase">Terminar mi compra</button>
+                                        </div>
+                                        <div>
+                                            <div className="space-around">
+                                                <button className="btn" onClick={trashAll}>Vaciar carrito</button>
+                                                <Link to='/' className="btn">Seguir comprando</Link>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 

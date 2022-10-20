@@ -282,6 +282,27 @@ html{
   justify-content: space-around;
   margin-top: 3rem;
 }
+
+table{
+  border-bottom:  5px solid yellow;
+}
+
+.total-price{
+  font-family: 'Press Start 2P', cursive;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.5rem 0;
+  margin: 0rem 33rem;
+}
+
+.btn-finish-purchase{
+  font-family: 'Press Start 2P', cursive;
+  background-color: yellow;
+  color: black;
+  margin-left: 73rem;
+  margin-top: 1.5rem;
+}
 /*---------------------------- CARTITEM.JS ----------------------------*/
 
 .pictureURL-table{
@@ -318,7 +339,7 @@ th{
 td {
   color: white;
   justify-content: center;
-  margin-left: 3rem;
+  text-align: center;
 }
 
 .table-total{

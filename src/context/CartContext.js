@@ -58,13 +58,22 @@ const CartProvider = ({children}) => {
         return total
       }
 
+      const getTotalQuantity = () => {
+        let totalQuantity = 0
+        addedItems.forEach(prod => {
+            totalQuantity = totalQuantity + prod.quantity 
+        })
+        return totalQuantity
+      }
+
     const context = {
         addedItems,
         addItem,
         removeItem,
         trashAll,
         count: addedItems.length,
-        getTotal
+        getTotal,
+        getTotalQuantity
     }
 
     return (
