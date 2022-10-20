@@ -2,7 +2,7 @@ import trash from '../images/trash-bin.png'
 import { useCart } from '../context/CartContext'
 import Item from './Item'
 
-const CartItem = ({price, quantity, pictureURL}) => {
+const CartItem = ({id, price, quantity, pictureURL}) => {
 
   
     const { removeItem } = useCart()
@@ -17,7 +17,7 @@ const CartItem = ({price, quantity, pictureURL}) => {
                 <td className="text-table">{price}</td>
                 <td className="text-table">{quantity}</td>
                 <td className="text-table">{pricexquantity(price, quantity)}</td>
-                <td ><button onClick={removeItem}><img className="trash-bin" src={trash}/></button></td>
+                <td ><button onClick={removeItem(id)}><img className="trash-bin" src={trash}/></button></td>
             </tr>
         </tbody>         
     )  

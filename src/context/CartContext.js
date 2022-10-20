@@ -38,28 +38,33 @@ const CartProvider = ({children}) => {
         
     const removeItem = (unchosenItemId) => {
 
-         const deleteItemConditional= isInCart(unchosenItemId)
-
-         if(deleteItemConditional === true){
-            const deleteItem = addedItems.find(item => item.id === unchosenItemId)
-            deleteItem.removeItem(deleteItem)
-         }
+         const deletedItem = addedItems.filter(item => item.id !== unchosenItemId)
+         setAddedItems([...deletedItem])
     }
 
     const trashAll = () => {
-        addedItems.clear()
+        setAddedItems([])
     }
 
     const isInCart = (itemId) => {
         return addedItems.some(item => item.id === itemId)
     }
 
+    const getTotal = () => {
+        let total = 0
+        addedItems.forEach(prod => {
+            total = total + prod.price * prod.quantity
+        })
+        return total
+      }
+
     const context = {
         addedItems,
         addItem,
         removeItem,
         trashAll,
-        count: addedItems.length
+        count: addedItems.length,
+        getTotal
     }
 
     return (

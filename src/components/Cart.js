@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import cross from "../images/cross.png"
 
 const Cart = () => {
-    const { addedItems, count, removeAll } = useCart()
+    const { addedItems, count, removeAll, getTotal, trashAll} = useCart()
     
     return (
         <div>
@@ -23,12 +23,9 @@ const Cart = () => {
                                             {addedItems.map(item => <CartItem key={item.id} {...item} />)}
                                         </table>
                                     </div>
-                                    <p>precio total: {addedItems.map(item => {
-                                
-                                return((item.price) += addedItems.price)
-                            })}</p>
+                                    <p>precio total: {getTotal()}</p>
                                     <div className="space-around">
-                                        <button className="btn" onClick={removeAll}>Vaciar carrito</button>
+                                        <button className="btn" onClick={trashAll}>Vaciar carrito</button>
                                         <button className="btn">Terminar mi compra</button>
                                         <Link to='/' className="btn">Seguir comprando</Link>
                                     </div>
