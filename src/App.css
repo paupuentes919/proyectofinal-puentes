@@ -243,4 +243,58 @@ html{
   font-size: 30px;
 }
 
+.cart-number{
+  display: inline-flex;
+}
+
+.number-quantity{
+  display: flex;
+  align-items: center;
+}
+
+/*---------------------------- CARTITEM.JS ----------------------------*/
+
+.pictureURL-table{
+  height: 20rem;
+}
+
+.trash-bin{
+  height: 3rem;
+}
+
+.text-table{
+  font-family: 'Press Start 2P', cursive;
+}
+
+.center{
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  padding-top: 3rem;
+}
+
+.table-center{
+  justify-content: center;
+  background-color: black;
+}
+
+th{
+  background-color: yellow;
+  font-family: 'Press Start 2P', cursive;
+  justify-content: center;
+  padding: 1.5rem 2rem;
+}
+
+td {
+  color: white;
+  justify-content: center;
+  margin-left: 3rem;
+}
+
+.table-total{
+
+  justify-content: center;
+}
+
+
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
