@@ -293,15 +293,38 @@ table{
   display: flex;
   justify-content: flex-end;
   padding: 1.5rem 0;
-  margin: 0rem 33rem;
+  margin-right: 4.6rem;
+
 }
 
 .btn-finish-purchase{
   font-family: 'Press Start 2P', cursive;
   background-color: yellow;
   color: black;
-  margin-left: 73rem;
   margin-top: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.outside-table{
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+
+.remove-trash{
+  font-family: 'Press Start 2P', cursive;
+  background-color: red;
+  color: black;
+  margin-top: 10.5rem;
+  margin-right: 4rem;
+}
+
+.continue-buying{
+  font-family: 'Press Start 2P', cursive;
+  background-color: green;
+  color: black;
+  margin-top: 10.5rem;
+  margin-right: 4rem;
 }
 /*---------------------------- CARTITEM.JS ----------------------------*/
 

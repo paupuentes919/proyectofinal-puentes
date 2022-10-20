@@ -2,6 +2,8 @@ import { useCart } from "../context/CartContext"
 import { Link } from "react-router-dom"
 import cross from "../images/cross.png"
 import trash from '../images/trash-bin.png'
+import circle from '../images/circle.png'
+import triangle from '../images/triangle.png'
 
 const Cart = () => {
     const { addedItems, count, removeAll, getTotal, trashAll, getTotalQuantity} = useCart()
@@ -37,7 +39,7 @@ const Cart = () => {
                                                     </tbody>   )}
                                         </table>
                                     </div>
-                                    <div>
+                                    <div className="outside-table">
                                         <div>
                                             <div className="total-price">
                                                 <p>Precio total: ${getTotal()}</p>
@@ -45,12 +47,12 @@ const Cart = () => {
                                             <div className="total-price">
                                                 <p>Cantidad total: {getTotalQuantity()}</p>
                                             </div>
-                                                <button className="btn btn-finish-purchase">Terminar mi compra</button>
+                                                <button className="btn btn-finish-purchase">Terminar mi compra<img className="cross" src={triangle}/></button>
                                         </div>
                                         <div>
-                                            <div className="space-around">
-                                                <button className="btn" onClick={trashAll}>Vaciar carrito</button>
-                                                <Link to='/' className="btn">Seguir comprando</Link>
+                                            <div className="">
+                                                <button className="btn remove-trash" onClick={trashAll}>Vaciar carrito<img className="cross" src={cross}/></button>
+                                                <Link to='/' className="btn continue-buying">Seguir comprando<img className="cross" src={circle}/></Link>
                                             </div>
                                         </div>
                                     </div>
