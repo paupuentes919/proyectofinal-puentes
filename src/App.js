@@ -8,7 +8,7 @@ import { CartProvider } from './context/CartContext';
 
 function App() {
   return (
-    <div>
+    <div className='background'>
       <CartProvider>
         <BrowserRouter>
           <NavBar/>
