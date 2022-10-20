@@ -58,7 +58,8 @@ const CartProvider = ({children}) => {
         addedItems,
         addItem,
         removeItem,
-        trashAll
+        trashAll,
+        count: addedItems.length
     }
 
     return (
