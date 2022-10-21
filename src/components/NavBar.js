@@ -26,7 +26,7 @@ const NavBar = () => {
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0 packman-navbar-2">
                     <li><Link to={'/'}>Todo</Link></li>
-                    <li><Link to={'/category/hamburger'}>Hamburguesas</Link></li>
+                    <li><Link to={'/category/burger'}>Hamburguesas</Link></li>
                     <li><Link to={'/category/sidedish'}>Acompañamientos</Link></li>
                     <li><Link to={'/category/drink'}>Bebidas</Link></li>
                 </ul>

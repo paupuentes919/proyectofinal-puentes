@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import { useParams } from 'react-router-dom'
-import {products} from '../data/Products'
+import {getProductsByID} from '../data/Products'
 import circle from "../images/circle.png"
 
 
@@ -11,19 +11,11 @@ const ItemCount = ({initial, onAdd}) => {
     const [item, setItem] = useState({})
     
     useEffect(() => {
-        getProducts().then( response => {
+        getProductsByID(itemId).then( response => {
             setItem(response);
             }
         )
     }, [])
-
-    const getProducts = () => {
-        return new Promise((resolve, reject) => {
-        setTimeout( () => {
-            resolve(products.find( product => product.id === Number(itemId)))
-        },2000);
-        })
-    }
 
     const clickHandlerPlus = () => {
         counter == item.stock ? setCounter(item.stock)  : setCounter(counter+1)
