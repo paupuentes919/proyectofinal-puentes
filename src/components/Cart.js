@@ -47,7 +47,7 @@ const Cart = () => {
                                             <div className="total-price">
                                                 <p>Cantidad total: {getTotalQuantity()}</p>
                                             </div>
-                                                <button className="btn btn-finish-purchase">Terminar mi compra<img className="cross" src={triangle}/></button>
+                                                <Link to="/checkout" className="btn btn-finish-purchase">Terminar mi compra<img className="cross" src={triangle}/></Link>
                                         </div>
                                         <div>
                                             <div className="">
