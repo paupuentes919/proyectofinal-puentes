@@ -18,17 +18,15 @@ const Checkout = ({total}) => {
         const order = {
             buyer: user,
             items: addedItems,
-            // total: getTotal
+            total: getTotal
         }
         console.log(order)
         const db = getFirestore()
-    const ordersCollection = collection(db, 'orders')
-    addDoc( ordersCollection, order ).then( ({id}) => {
+        const ordersCollection = collection(db, 'orders')
+        addDoc( ordersCollection, order ).then( ({id}) => {
         console.log( id );
         alert( id )
-    })
-
-
+        })
 
     }
 

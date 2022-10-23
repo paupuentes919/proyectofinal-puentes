@@ -2,7 +2,7 @@ import { useEffect, useState, React } from 'react'
 import { useParams } from 'react-router-dom'
 import ItemDetail from './ItemDetail'
 import pacman from '../images/pacman2.png'
-import { doc, getDoc, getFirestore, query, where } from "firebase/firestore";
+import { doc, getDoc, getFirestore} from "firebase/firestore";
 
 const ItemDetailContainer = () => {
     const { id: itemId } = useParams()

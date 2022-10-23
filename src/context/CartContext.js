@@ -11,25 +11,19 @@ const CartProvider = ({children}) => {
     const [addedItems, setAddedItems] = useState([])
 
     const addItem = (chosenItem, quantity) => {
-        // creas un nuevo objeto con los parámetros que recibís
           const cart = {
             ...chosenItem,
             quantity
           }     
-        // si está en el carrito, analizas si este producto está en isInCart
           if(isInCart(cart.id)){
-        // si está, vas a hacer un map
               addedItems.map(element => {
-          // si coinciden los id's
                 if(element.id === cart.id)  {
-        // suma la cantidad
                   element.quantity += cart.quantity
                 }
                 return(element)
-                })
+            })
         
-            }
-        // si no va a agregar el producto
+        }
         else {
               setAddedItems([...addedItems, cart])   
             }
@@ -37,7 +31,6 @@ const CartProvider = ({children}) => {
     }
         
     const removeItem = (unchosenItemId) => {
-
          const deletedItem = addedItems.filter(item => item.id !== unchosenItemId)
          setAddedItems([...deletedItem])
     }

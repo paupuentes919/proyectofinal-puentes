@@ -1,9 +1,8 @@
 import { useState} from "react";
 import circle from "../images/circle.png"
 
-
 const ItemCount = ({initial, onAdd, stock}) => {
-    console.log("veamos el codigo de item produc",stock)
+
     const [counter, setCounter] = useState(initial)
     
     const clickHandlerPlus = () => {
