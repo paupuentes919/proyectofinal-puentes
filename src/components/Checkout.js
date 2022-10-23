@@ -17,7 +17,7 @@ const Checkout = () => {
         const order = {
             buyer: user,
             items: addedItems,
-            total: getTotal
+            // total: getTotal
         }
         console.log(order)
         const db = getFirestore()

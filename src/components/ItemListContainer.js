@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import React from "react"
 import ItemList from "./ItemList"
-import { getProducts } from "../data/Products"
-import { getProductsByCategory } from "../data/Products"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import { useParams } from "react-router-dom"
 import pacman from '../images/pacman2.png'
 
@@ -11,26 +10,37 @@ const ItemListContainer = ({greeting}) => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
 
+    console.log("hola", category)
+
     useEffect(()=>{
-        // chequeamos si hay categorías
         if (category){
-         //lamamos a la función con category como parámetro. Para que haga el filtro
-            getProductsByCategory(category).then((products) => {
-         // seteamos el estado
-             setItems(products)  
-             setLoading(false)    
-          })
-          // si no hay categorías
+          getProductsByCategory(category)
+          setLoading(false)    
         }else {
-          //llamamos a la función
-          getProducts().then((products) => {
-            //seteamos el estado
-            setItems(products)
-            setLoading(false) 
-          })
+          getProducts()
+          setLoading(false)
         }
-        // ponemos el parámetro como array de dependencias para que se renderice cuando cambia de categoría
-      }, [category])
+    }, [category])
+
+      const getProductsByCategory = (category) => {
+        const db = getFirestore()
+        const itemsRef = collection(db, 'products')
+        const q = query(itemsRef, where('category', '==', category) )
+        getDocs( q ).then( snapshot => {
+            const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}) )
+            setItems(data)
+        })
+      }
+
+      const getProducts = () => {
+        const db = getFirestore()
+        const itemsRef = collection(db, 'products')
+        getDocs( itemsRef ).then( snapshot => {
+            const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}) )
+            console.table(data);
+            setItems(data)
+        })
+      }
 
     return (
         <div>

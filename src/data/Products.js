@@ -21,14 +21,14 @@ const products = [
     {id: 18, title: 'Agua', category: 'drink', description: 'Agua sin gas', price: 500, stock: 20, pictureURL: "https://images.rappi.com.ar/products/1141516-1588023111775.png?e=webp&d=800x800&q=80"},
 ]
 
-export const getProductsByCategory = (category) => {
-    return new Promise( (resolve) => {
-    const itemsFiltered = products.filter( item => item.category === category)
-      setTimeout( () => {
-        resolve(itemsFiltered)
-      }, 2000)
-    })
-}
+// export const getProductsByCategory = (category) => {
+//     return new Promise( (resolve) => {
+//     const itemsFiltered = products.filter( item => item.category === category)
+//       setTimeout( () => {
+//         resolve(itemsFiltered)
+//       }, 2000)
+//     })
+// }
 
 // export const getProducts = () => {
 //     return new Promise( (resolve) => {
@@ -58,34 +58,5 @@ export const getProducts= async () =>{
 //      },2000);
 //      })
 //  }
-
-// export const getProductsByIDd = (id) => {
-//   const db = getFirestore()
-//   const itemRef = collection(db,'products')
-//   const q = query(itemRef, where ('id', '==', id))
-//   getDocs(q).then(snapshot => {
-//     const data = snapshot.docs.map (e => ({id: e.id, ...e.data()}))
-//     console.table(data);
-//     return data;
-//   })
-// }
-
-// export const getProductsByID= async (id) =>{
-//    try{
-//     console.log(id) // me trae bien el ID
-//     const db = getFirestore()
-//     const itemRef = collection(db,"products")
-//     const q = query(itemRef, where('id', '==', id) )
-//     console.log("veeeer", q)
-//     const snapshot = await getDocs( q )
-//     console.log("veeeer22222", snapshot)
-//     const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}) )
-//          console.table(data);
-//          return data
-
-//    } catch(error){
-//      console.log(error)
-//    }  
-// } 
 
 export {products}

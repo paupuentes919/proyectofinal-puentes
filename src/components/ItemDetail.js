@@ -7,7 +7,7 @@ import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
 import { useCart } from '../context/CartContext'
 
 const ItemDetail = ({itemProduct}) => {
-
+console.log("ITEM PRODUCT", itemProduct)
 const [quantity, setQuantity] = useState(0);
 const { addItem } = useCart()
 
@@ -25,7 +25,7 @@ const handlerClick = (valueCount) => {
                 <div className="item-description-text">Price: $ {itemProduct.price}</div>
                 <div className="item-description-text">Stock: {itemProduct.stock}</div>
                 {
-                    quantity == 0 ?  <ItemCount initial={1} onAdd={handlerClick} /> :  <Link to="/cart" className="btn-endPurchase">Finalizar mi compra <img className="cross" src={triangle}/></Link> 
+                    quantity == 0 ?  <ItemCount initial={1} onAdd={handlerClick} stock={itemProduct.stock}/> :  <Link to="/cart" className="btn-endPurchase">Finalizar mi compra <img className="cross" src={triangle}/></Link> 
                 } 
                 <div className="counter-ghosts">
                     <Link to='/' className="btn-cancel">                    
