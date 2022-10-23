@@ -11,7 +11,9 @@ const Cart = () => {
     const { removeItem } = useCart()
     const pricexquantity = (price, quantity) => {
         return price * quantity
-    } 
+    }
+
+    console.log("GET TOTALITO", getTotal())
     
     return (
         <div>
@@ -28,7 +30,7 @@ const Cart = () => {
                                                 </tr>
                                             </thead>
                                             {addedItems.map(item => 
-                                                    <tbody>
+                                                    <tbody key={item.id}>
                                                         <tr>
                                                             <td><img className="pictureURL-table" src= {item.pictureURL}/></td>
                                                             <td className="text-table">$ {item.price}</td>
@@ -47,7 +49,7 @@ const Cart = () => {
                                             <div className="total-price">
                                                 <p>Cantidad total: {getTotalQuantity()}</p>
                                             </div>
-                                                <Link to="/checkout" className="btn btn-finish-purchase">Terminar mi compra<img className="cross" src={triangle}/></Link>
+                                                <Link to="/checkout" total = {getTotal()} className="btn btn-finish-purchase">Terminar mi compra<img className="cross" src={triangle}/></Link>
                                         </div>
                                         <div>
                                             <div className="">

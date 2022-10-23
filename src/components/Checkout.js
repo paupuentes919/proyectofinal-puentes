@@ -1,14 +1,15 @@
 import { useState } from "react"
 import { useCart } from "../context/CartContext"
 import {addDoc, collection, getFirestore} from 'firebase/firestore'
+import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
 
-const Checkout = () => {
+const Checkout = ({total}) => {
 
-
+    
     const { addedItems, getTotalQuantity, getTotal } = useCart()
     const [user, setUser] = useState({})
 
-
+    console.log("getTotal", total)
     const updateUser = (event) => {
         setUser( user => ({...user, [event.target.name]: event.target.value }))
     }
@@ -56,8 +57,9 @@ const Checkout = () => {
                     </div>
                 </div>
                 <div className="flex justify-content">
-                        <button className="btn" onClick={putOrder}>Comprar</button>
+                        <button className="btn btn-finish-purchase" onClick={putOrder}>Comprar</button>
                 </div>
+                <img className="ghosts-pacman-image-checkout" src={pacmanfantasmas} /> 
             </div>
         </div>
     )

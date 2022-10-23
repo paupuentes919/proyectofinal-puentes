@@ -303,6 +303,7 @@ table{
   display: flex;
   justify-content: center;
   flex-direction: row-reverse;
+  background-color: black;
 }
 
 .remove-trash{
@@ -369,6 +370,15 @@ td {
 .text-pacman{
   font-family: 'Press Start 2P', cursive;
   color: white;
+}
+
+.ghosts-pacman-image-checkout{
+  height: 10rem;
+  margin: 0 1rem;
+}
+
+.btn-finish-purchase{
+  margin: 2rem 2rem;
 }
 
 .background-checkout{
