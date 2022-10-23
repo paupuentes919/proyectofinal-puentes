@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import { useParams } from 'react-router-dom'
-import {getProductsByID} from '../data/Products'
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 import circle from "../images/circle.png"
 
 
@@ -11,11 +11,19 @@ const ItemCount = ({initial, onAdd}) => {
     const [item, setItem] = useState({})
     
     useEffect(() => {
-        getProductsByID(itemId).then( response => {
-            setItem(response);
-            }
-        )
+        getProductsByID(itemId)
     }, [])
+
+    const getProductsByID = ( itemId ) => {
+        const db = getFirestore()
+        const itemsRef = collection(db, 'products')
+        const q = query(itemsRef, where('id', '==', itemId) )
+        getDocs( q ).then( snapshot => {
+            const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}) )
+            console.table(data);
+            setItem(data)
+        })
+      }
 
     const clickHandlerPlus = () => {
         counter == item.stock ? setCounter(item.stock)  : setCounter(counter+1)
