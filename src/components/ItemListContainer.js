@@ -10,15 +10,17 @@ const ItemListContainer = ({greeting}) => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
 
-    console.log("hola", category)
-
     useEffect(()=>{
         if (category){
-          getProductsByCategory(category)
-          setLoading(false)    
+          setTimeout(()=>{
+            getProductsByCategory(category);
+            setLoading(false)
+          }, 2000)    
         }else {
-          getProducts()
-          setLoading(false)
+          setTimeout(()=>{
+            getProducts();
+            setLoading(false)
+            }, 2000)
         }
     }, [category])
 
