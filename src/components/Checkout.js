@@ -4,7 +4,6 @@ import {addDoc, collection, getFirestore} from 'firebase/firestore'
 import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
 import React from 'react'
 import swal from 'sweetalert'
-import { Link } from "react-router-dom"
 
 const Checkout = ({total}) => {
 
@@ -28,17 +27,16 @@ const Checkout = ({total}) => {
         const ordersCollection = collection(db, 'orders')
         addDoc( ordersCollection, order ).then( ({id}) => {
         console.log( id );
-        swal({
-            title: `Muchas gracias por tu compra, ${user.name}`,
-            text: `Te hemos enviado un mail a ${user.email} con tu orden de compra ID: ${id}`,
-            icon: "success",
-            button: "Volver al inicio",
-        }).then(function(){
-            trashAll();
-            window.location = "/";
+            swal({
+                title: `Muchas gracias por tu compra, ${user.name}`,
+                text: `Te hemos enviado un mail a ${user.email} con tu orden de compra ID: ${id}`,
+                icon: "success",
+                button: "Volver al inicio",
+            }).then(function(){
+                trashAll();
+                window.location = "/";
+                })
         })
-        })
-
     }
 
     return (
@@ -66,7 +64,7 @@ const Checkout = ({total}) => {
                     </div>
                 </div>
                 <div className="flex justify-content">
-                        <button className="btn btn-finish-purchase" onClick={putOrder}>Comprar</button>
+                        <button disabled={!user.name || !user.surname || !user.phone || !user.email} className="btn btn-finish-purchase" onClick={putOrder}>Comprar</button>
                 </div>
                 <img className="ghosts-pacman-image-checkout" src={pacmanfantasmas} /> 
             </div>
