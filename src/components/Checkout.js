@@ -2,10 +2,13 @@ import { useState } from "react"
 import { useCart } from "../context/CartContext"
 import {addDoc, collection, getFirestore} from 'firebase/firestore'
 import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
+import React from 'react'
+import swal from 'sweetalert'
+import { Link } from "react-router-dom"
 
 const Checkout = ({total}) => {
 
-    
+    const {trashAll} = useCart()
     const { addedItems, getTotalQuantity, getTotal } = useCart()
     const [user, setUser] = useState({})
 
@@ -18,14 +21,22 @@ const Checkout = ({total}) => {
         const order = {
             buyer: user,
             items: addedItems,
-            total: getTotal
+            // total: getTotal
         }
         console.log(order)
         const db = getFirestore()
         const ordersCollection = collection(db, 'orders')
         addDoc( ordersCollection, order ).then( ({id}) => {
         console.log( id );
-        alert( id )
+        swal({
+            title: `Muchas gracias por tu compra, ${user.name}`,
+            text: `Te hemos enviado un mail a ${user.email} con tu orden de compra ID: ${id}`,
+            icon: "success",
+            button: "Volver al inicio",
+        }).then(function(){
+            trashAll();
+            window.location = "/";
+        })
         })
 
     }
