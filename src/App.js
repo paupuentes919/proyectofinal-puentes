@@ -7,9 +7,10 @@ import Cart from './components/Cart'
 import { CartProvider } from './context/CartContext';
 import Checkout from './components/Checkout';
 
+
 function App() {
   return (
-    <div className='background'>
+    <div style={{backgroundColor: 'black', height: '100vh'}}>
       <CartProvider>
         <BrowserRouter>
           <NavBar/>

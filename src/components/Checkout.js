@@ -5,13 +5,12 @@ import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
 import React from 'react'
 import swal from 'sweetalert'
 
-const Checkout = ({total}) => {
+const Checkout = () => {
 
     const {trashAll} = useCart()
     const { addedItems, getTotalQuantity, getTotal } = useCart()
     const [user, setUser] = useState({})
 
-    console.log("getTotal", total)
     const updateUser = (event) => {
         setUser( user => ({...user, [event.target.name]: event.target.value }))
     }
@@ -20,13 +19,11 @@ const Checkout = ({total}) => {
         const order = {
             buyer: user,
             items: addedItems,
-            // total: getTotal
+            total: getTotalQuantity()
         }
-        console.log(order)
         const db = getFirestore()
         const ordersCollection = collection(db, 'orders')
         addDoc( ordersCollection, order ).then( ({id}) => {
-        console.log( id );
             swal({
                 title: `Muchas gracias por tu compra, ${user.name}`,
                 text: `Te hemos enviado un mail a ${user.email} con tu orden de compra ID: ${id}`,

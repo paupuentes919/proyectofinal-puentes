@@ -27,7 +27,6 @@ const CartProvider = ({children}) => {
         else {
               setAddedItems([...addedItems, cart])   
             }
-        console.log("newObject", addedItems);
     }
         
     const removeItem = (unchosenItemId) => {

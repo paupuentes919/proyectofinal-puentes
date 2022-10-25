@@ -7,7 +7,6 @@ import pacmanfantasmas from '../images/pacmanfantasmitas.jpg'
 import { useCart } from '../context/CartContext'
 
 const ItemDetail = ({itemProduct}) => {
-console.log("ITEM PRODUCT", itemProduct)
 const [quantity, setQuantity] = useState(0);
 const { addItem } = useCart()
 

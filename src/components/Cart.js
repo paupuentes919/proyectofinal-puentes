@@ -6,15 +6,11 @@ import circle from '../images/circle.png'
 import triangle from '../images/triangle.png'
 
 const Cart = () => {
-    const { addedItems, count, removeAll, getTotal, trashAll, getTotalQuantity} = useCart()
-
-    const { removeItem } = useCart()
+    const { addedItems, count, removeItem, getTotal, trashAll, getTotalQuantity} = useCart()
     const pricexquantity = (price, quantity) => {
         return price * quantity
     }
 
-    console.log("GET TOTALITO", getTotal())
-    
     return (
         <div>
             {(count > 0 )   ?  <div>
