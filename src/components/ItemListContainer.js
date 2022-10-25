@@ -10,39 +10,31 @@ const ItemListContainer = ({greeting}) => {
     const [items, setItems] = useState([])
     const [loading, setLoading] = useState(true)
 
-    useEffect(()=>{
-        if (category){
-          setTimeout(()=>{
-            getProductsByCategory(category);
-            setLoading(false)
-          }, 2000)    
-        }else {
-          setTimeout(()=>{
-            getProducts();
-            setLoading(false)
-            }, 2000)
-        }
-    }, [category])
-
-      const getProductsByCategory = (category) => {
-        const db = getFirestore()
-        const itemsRef = collection(db, 'products')
-        const q = query(itemsRef, where('category', '==', category) )
-        getDocs( q ).then( snapshot => {
-            const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}) )
-            setItems(data)
-        })
-      }
-
-      const getProducts = () => {
-        const db = getFirestore()
-        const itemsRef = collection(db, 'products')
-        getDocs( itemsRef ).then( snapshot => {
-            const data = snapshot.docs.map( e => ({id: e.id, ...e.data()}) )
-            console.table(data);
-            setItems(data)
-        })
-      }
+    useEffect(() => {
+      const db = getFirestore()
+      const getData = async () => {
+        const queryRef = !category
+          ? collection(db, "products")
+          : query(
+              collection(db, "products"),
+              where("category", "==", category)
+            );
+        const response = await getDocs(queryRef);
+        const productos = response.docs.map((doc) => {
+          const newProduct = {
+            ...doc.data(),
+            id: doc.id,
+          };
+          return newProduct;
+        });
+        setTimeout(()=>{
+          setItems(productos);
+          setLoading(false)
+        }, 2000)
+  
+      };
+      getData();
+    }, [category]);
 
     return (
         <div>
